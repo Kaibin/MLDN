@@ -1,4 +1,4 @@
 MLDN
 ====
 
-S2SH+MySQL+JPA 论坛
+Struts2+Spring2+JPA+MySQL的Java Web Demo
