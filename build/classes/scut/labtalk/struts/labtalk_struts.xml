@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="struts2"  namespace="/jsp" extends="struts-default">
+			
+		<action name="userAction" class="scut.labtalk.struts.action.UserAction" method="register">
+			<!--<result name="registersuccess" type="redirect-action">
+        		<param name="actionName">userAction</param>
+        		<param name="namespace">/jsp</param>
+        		<param name="method">list</param>
+    		</result>	
+    		 --><result name="welcome">/jsp/tempt.jsp</result>	
+		    <result name="registerfailure">/jsp/register.jsp</result>			
+		</action>
+		
+		<action name="firstPage" class="scut.labtalk.struts.action.UserAction" method="login">
+			<result name="loginfailure">/jsp/login.jsp</result>
+		    <result name="loginsuccess" type="redirect-action">
+        		<param name="actionName">UserAction</param>
+        		<param name="namespace">/jsp</param>
+        		<param name="method">list</param>
+    		</result>			
+		</action>
+		
+		<!--
+		
+		
+		<action attribute="userForm" input="/jsp/errors.jsp"
+			name="userForm" parameter="status" path="/jsp/user" scope="request"
+			type="org.lxh.myzngt.struts.action.UserAction">
+			<forward name="registersuccess"
+				path="/jsp/index.do?status=list">
+			</forward>
+			<forward name="registerfailure" path="/jsp/register.jsp"></forward>
+			<forward name="loginsuccess"
+				path="/jsp/index.do?status=list">
+			</forward>
+			<forward name="loginfailure" path="/jsp/login.jsp"></forward>
+			<forward name="exists" path="/jsp/updatepwd.jsp"></forward>
+			<forward name="notexists" path="/jsp/forgetpwd.jsp"></forward>
+			<forward name="updatepwddo" path="/jsp/updatepwd_do.jsp"></forward>
+			<forward name="userinfo" path="/jsp/user/userinfo.jsp"></forward>
+			<forward name="updatedo" path="/jsp/user/update_do.jsp"></forward>
+		</action>
+		
+		
+		
+		<action attribute="questionForm" input="/jsp/errors.jsp"
+			name="questionForm" parameter="status" path="/jsp/ques/question"
+			scope="request" type="org.lxh.myzngt.struts.action.QuestionAction">
+			<forward name="insertdo" path="/jsp/ques/question_do.jsp"></forward>
+		</action>
+		<action attribute="answerForm" input="/jsp/errors.jsp"
+			name="answerForm" parameter="status" path="/jsp/ques/answer"
+			scope="request" type="org.lxh.myzngt.struts.action.AnswerAction">
+			<forward name="insertdo" path="/jsp/ques/answer_do.jsp"></forward>
+		</action>
+		<action attribute="itemForm" input="/jsp/errors.jsp"
+			name="itemForm" parameter="status" path="/jsp/ques/item"
+			scope="request" type="org.lxh.myzngt.struts.action.ItemAction">
+			<forward name="question" path="/jsp/ques/question.jsp"></forward>
+		</action>
+		<action attribute="indexForm" input="/jsp/errors.jsp"
+			name="indexForm" parameter="status" path="/jsp/index" scope="request"
+			type="org.lxh.myzngt.struts.action.IndexAction">
+			<forward name="indexdo" path="/jsp/index.jsp"></forward>
+		</action>
+		<action attribute="showForm" input="/jsp/errors.jsp"
+			name="showForm" parameter="status" path="/jsp/show" scope="request"
+			type="org.lxh.myzngt.struts.action.ShowAction">
+			<forward name="showquestion"
+				path="/jsp/question_show.jsp">
+			</forward>
+			<forward name="showlist" path="/jsp/list_question.jsp"></forward>
+		</action>
+		<action attribute="userinfoForm" input="/jsp/errors.jsp"
+			name="userinfoForm" parameter="status" path="/jsp/user/userinfo"
+			scope="request" type="org.lxh.myzngt.struts.action.UserinfoAction">
+			<forward name="listmyquestion"
+				path="/jsp/user/list_myquestion.jsp">
+			</forward>
+			<forward name="listanswer"
+				path="/jsp/user/list_answer.jsp">
+			</forward>
+			<forward name="listmyaccept"
+				path="/jsp/user/list_myaccept.jsp">
+			</forward>
+			<forward name="listmyquestionanswer"
+				path="/jsp/user/list_myquestionanswer.jsp">
+			</forward>
+			<forward name="answerdo"
+				path="/jsp/user/accept_answer.jsp">
+			</forward>
+			<forward name="updatequestiondo"
+				path="/jsp/user/question_update_do.jsp">
+			</forward>
+		</action>
+		<action attribute="adminForm" input="/jsp/errors.jsp"
+			name="adminForm" parameter="status" path="/jsp/admin/admin"
+			scope="request" type="org.lxh.myzngt.struts.action.AdminAction">
+			<forward name="insertdo"
+				path="/jsp/admin/admin.do?status=list">
+			</forward>
+			<forward name="updatepwddo"
+				path="/jsp/admin/admin_updatepwd_do.jsp">
+			</forward>
+			<forward name="updatepwdfailure"
+				path="/jsp/admin/admin_updatepwd.jsp">
+			</forward>
+			<forward name="deletedo"
+				path="/jsp/admin/admin.do?status=list">
+			</forward>
+			<forward name="list" path="/jsp/admin/admin_list.jsp"></forward>
+
+		</action>
+		<action attribute="adminuserForm" input="/jsp/errors.jsp"
+			name="adminuserForm" parameter="status" path="/jsp/admin/adminuser"
+			scope="request"
+			type="org.lxh.myzngt.struts.action.AdminuserAction">
+			<forward name="userlist" path="/jsp/admin/user_list.jsp"></forward>
+			<forward name="list"
+				path="/jsp/admin/adminuser.do?status=list">
+			</forward>
+		</action>
+		<action attribute="adminquestionForm" input="/jsp/errors.jsp"
+			name="adminquestionForm" parameter="status"
+			path="/jsp/admin/adminquestion" scope="request"
+			type="org.lxh.myzngt.struts.action.AdminquestionAction">
+			<forward name="questionlist"
+				path="/jsp/admin/question_list.jsp">
+			</forward>
+			<forward name="list"
+				path="/jsp/admin/adminquestion.do?status=list">
+			</forward>
+		</action>
+		<action attribute="adminitemForm" input="/jsp/errors.jsp"
+			name="adminitemForm" parameter="status" path="/jsp/admin/adminitem"
+			scope="request"
+			type="org.lxh.myzngt.struts.action.AdminitemAction">
+			<forward name="itemlist" path="/jsp/admin/item_list.jsp"></forward>
+			<forward name="list"
+				path="/jsp/admin/adminitem.do?status=list">
+			</forward>
+			<forward name="subitemlist"
+				path="/jsp/admin/subitem_list.jsp">
+			</forward>
+		</action>
+		<action attribute="adminsubitemForm" input="/jsp/errors.jsp"
+			name="adminsubitemForm" parameter="status"
+			path="/jsp/admin/adminsubitem" scope="request"
+			type="org.lxh.myzngt.struts.action.AdminsubitemAction">
+			<forward name="subitemlist"
+				path="/jsp/admin/subitem_list.jsp">
+			</forward>
+		</action>
+		<action attribute="adminloginForm" input="/jsp/errors.jsp"
+			name="adminloginForm" parameter="status" path="/jsp/adminlogin"
+			scope="request"
+			type="org.lxh.myzngt.struts.action.AdminloginAction">
+			<forward name="loginsuccess"
+				path="/jsp/goadmin.htm">
+			</forward>
+			<forward name="loginfailure"
+				path="/jsp/admin_login.jsp">
+			</forward>
+		</action>
+		
+		
+		
+		
+	--></package>
+	
+</struts>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+ 
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.i18n.encoding" value="gbk"></constant>
+	<package name="default" namespace="/jsp" extends="struts-default,json-default">
+	
+		<action name="registerAction" class="scut.labtalk.struts.action.UserAction" method="register">
+			<result name="registerSuccess" type="redirectAction">
+        		<param name="actionName">IndexAction</param>
+        		<param name="namespace">/jsp</param>
+        		<param name="method">list</param>
+
+    		</result>	
+    		 
+		    <result name="registerFailure">register.jsp</result>	
+		    <result name="welcome">tempt.jsp</result>			
+		</action>
+		
+		<action name="loginAction" class="scut.labtalk.struts.action.UserAction" method="login">
+		 	<result name="loginSuccess" type="redirectAction">
+        		<param name="actionName">IndexAction</param>
+        		<param name="namespace">/jsp</param>
+        		<param name="method">list</param>
+    		</result>	
+		 	<result name="loginFailure">login.jsp</result>	
+		 	<result name="welcome">tempt.jsp</result>		
+		</action>
+		
+		<action name="IndexAction" class="scut.labtalk.struts.action.IndexAction" method="list">
+		 	<result name="indexSuccess">/jsp/index.jsp</result>	
+		</action>
+		
+		<action name="ItemAction" class="scut.labtalk.struts.action.ItemAction" method="selectAllItem">
+		 	<result name="question">/jsp/ques/question.jsp</result>	
+		 	<result name="error">/jsp/errors.jsp</result>	   
+		</action>
+		
+		<action name="QuestionAction" class="scut.labtalk.struts.action.QuestionAction" method="insert">
+		 	<result name="SaveQuestionSuccess">/jsp/ques/question_do.jsp</result>	
+		</action>
+		
+		<action name="ShowQuestionAction" class="scut.labtalk.struts.action.ShowQuestionAction" method="selectQuestionByQid">
+		 	<result name="showquestion">/jsp/question_show.jsp</result>	
+		</action>
+		
+		<!--
+		<action name="MoreCommenQuestionAction" class="scut.labtalk.struts.action.ShowQuestionAction" method="selectQuestionByCommen">
+		 	<result name="showlist">/jsp/grid_question.jsp</result>	
+		</action>
+		
+		<action name="MoreStatusQuestionAction" class="scut.labtalk.struts.action.ShowQuestionAction" method="selectQuestionByStatus">
+		 	<result name="showlist">/jsp/list_question.jsp</result>	
+		</action>
+		
+		<action name="SearchQuestionAction" class="scut.labtalk.struts.action.ShowQuestionAction" method="selectQuestionBySearch">
+		 	<result name="showlist">/jsp/grid_question.jsp</result>	
+		</action>
+		-->
+		<action name="MoreCommenQuestionAction" class="scut.labtalk.struts.action.ShowQuestionAction" method="selectQuestionByCommen">
+		 	<result type="json">
+		 		<param name="excludeProperties">
+                    questionService,itemService,request
+                </param>
+		 	</result>	
+		</action>
+		
+		<action name="SearchQuestionAction" class="scut.labtalk.struts.action.ShowQuestionAction" method="selectQuestionBySearch">
+		 	<result type="json">
+		 		<param name="excludeProperties">
+                    questionService,itemService,request
+                </param>
+		 	</result>	
+		</action>
+		
+		<action name="MoreStatusQuestionAction" class="scut.labtalk.struts.action.ShowQuestionAction" method="selectQuestionByStatus">
+		 	<result type="json">
+		 		<param name="excludeProperties">
+                    questionService,itemService,request
+                </param>
+		 	</result>	
+		</action>
+		
+		<action name="MoreItemQuestionAction" class="scut.labtalk.struts.action.ShowQuestionAction" method="selectQuestionByItem">
+		 	<result name="showlist">/jsp/list_question.jsp</result>	
+		</action>
+		<action name="MoreSubitemQuestionAction" class="scut.labtalk.struts.action.ShowQuestionAction" method="selectQuestionBySubitem">
+		 	<result name="showlist">/jsp/list_question.jsp</result>	
+		</action>
+	
+		<action name="AnswerAction" class="scut.labtalk.struts.action.AnswerAction" method="insert">
+		 	<result name="insertdo">/jsp/ques/answer_do.jsp</result>	
+		</action>
+		
+	</package>
+	
+	<!--
+	<package name="jsontest" extends="json-default">
+		<action name="MoreCommenQuestionAction" class="scut.labtalk.struts.action.ShowQuestionAction" method="selectQuestionByCommen">
+		 	<result type="json">
+		 		<param name="excludeProperties">
+                     序列化属性中排除 ,这里的userService,user将不会以json格式输出 
+                     userService因为是注入进来的对象 这里不排除的话会报异常 
+                    questionService,itemService,request
+                </param>
+		 	</result>	
+		</action>
+	</package>
+	-->
+	
+</struts>
