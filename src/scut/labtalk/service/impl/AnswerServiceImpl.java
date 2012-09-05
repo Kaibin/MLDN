@@ -2,10 +2,12 @@ package scut.labtalk.service.impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import scut.labtalk.dao.AnswerDao;
 import scut.labtalk.domain.Answer;
 import scut.labtalk.service.AnswerService;
-
+@Component
 public class AnswerServiceImpl implements AnswerService{
 
 	@Autowired

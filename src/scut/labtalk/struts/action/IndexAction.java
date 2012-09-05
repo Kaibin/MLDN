@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.interceptor.SessionAware;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import scut.labtalk.domain.Item;
 import scut.labtalk.domain.Question;
@@ -24,12 +25,15 @@ public class IndexAction extends ActionSupport implements SessionAware{
 	 */
 	private static final long serialVersionUID = 2345219753184690185L;
 	private Log logger = LogFactory.getLog(IndexAction.class);
+	
+	@Autowired
+	private ItemService itemService;
+	@Autowired
+	private QuestionService questionService;
+	@Autowired
+	private UserService userService;
+	
 	private Map<String,Object> session;
-	
-	private ItemService itemService = ServiceLocator.getServiceLocator().getItemService();
-	private QuestionService questionService = ServiceLocator.getServiceLocator().getQuestionService();
-	private UserService userService = ServiceLocator.getServiceLocator().getUserService();
-	
 	private List<Item> allitem = null ;
 	private List<Question> commen = null ;
 	private List<Question> unsolve = null ;

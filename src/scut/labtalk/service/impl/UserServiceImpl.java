@@ -3,11 +3,13 @@ package scut.labtalk.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import scut.labtalk.dao.UserDao;
 import scut.labtalk.domain.User;
 import scut.labtalk.service.UserService;
 
+@Component
 public class UserServiceImpl implements UserService{
 
 	@Autowired

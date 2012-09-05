@@ -3,11 +3,12 @@ package scut.labtalk.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import scut.labtalk.dao.QuestionDao;
 import scut.labtalk.domain.Question;
 import scut.labtalk.service.QuestionService;
-
+@Component
 public class QuestionServiceImpl implements QuestionService{
 
 	@Autowired

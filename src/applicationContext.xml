@@ -43,18 +43,6 @@
 
 	<!-- Instruct Spring to perform declarative transaction management automatically 
 		on annotated classes. -->
-	<tx:annotation-driven transaction-manager="transactionManager" />
-
-	<bean name="userService" class="scut.labtalk.service.impl.UserServiceImpl">
-		<property name="userdao" ref="userdao" />
-	</bean>
-	<bean name="questionService" class="scut.labtalk.service.impl.QuestionServiceImpl">
-		<property name="questiondao" ref="questiondao" />
-	</bean>
-	<bean name="answerService" class="scut.labtalk.service.impl.AnswerServiceImpl">
-		<property name="answerdao" ref="answerdao" />
-	</bean>
-	<bean name="itemService" class="scut.labtalk.service.impl.ItemServiceImpl">
-		<property name="itemdao" ref="itemdao" />
-	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />	 
+	
 </beans>                          

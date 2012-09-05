@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.interceptor.SessionAware;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import scut.labtalk.domain.Answer;
 import scut.labtalk.domain.Question;
@@ -21,6 +22,9 @@ public class AnswerAction  extends ActionSupport implements SessionAware{
 	/**
 	 * @author kaibin
 	 */
+	private static final long serialVersionUID = -6552334637074830360L;
+	
+	private Log logger = LogFactory.getLog(QuestionAction.class);
 	
 	private String grade;
 
@@ -33,16 +37,13 @@ public class AnswerAction  extends ActionSupport implements SessionAware{
 	private String type;
 	
 	private String quesans;
-	
-	private static final long serialVersionUID = -6552334637074830360L;
-	
-	private Log logger = LogFactory.getLog(QuestionAction.class);
-	
-	private AnswerService answerService = ServiceLocator.getServiceLocator().getAnswerService();
-	
-	private QuestionService questionService = ServiceLocator.getServiceLocator().getQuestionService();
-	
-	private UserService userSerivice = ServiceLocator.getServiceLocator().getUserService();
+
+	@Autowired
+	private AnswerService answerService;
+	@Autowired
+	private QuestionService questionService;
+	@Autowired
+	private UserService userSerivice;
 	
 	private Map<String,Object> session;
 

@@ -22,7 +22,11 @@ public class QuestionAction extends ActionSupport implements SessionAware{
 	 * @author kaibin
 	 */
 	private static final long serialVersionUID = 4399493766801314021L;
+	private Log logger = LogFactory.getLog(QuestionAction.class);
 
+	@Autowired
+	private QuestionService questionService;
+	
 	private String qid;
 
 	private String title;
@@ -43,9 +47,7 @@ public class QuestionAction extends ActionSupport implements SessionAware{
 	
 	private String subid ;
 	
-	private QuestionService questionService = ServiceLocator.getServiceLocator().getQuestionService();
 	private Map<String,Object> session;
-	private Log logger = LogFactory.getLog(QuestionAction.class);
 	
 	public String insert() {
 		

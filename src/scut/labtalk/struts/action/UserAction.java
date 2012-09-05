@@ -14,9 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import scut.labtalk.domain.Gender;
 import scut.labtalk.domain.User;
-import scut.labtalk.manager.ServiceLocator;
 import scut.labtalk.service.UserService;
 import scut.labtalk.util.MD5Code;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserAction extends ActionSupport implements ServletRequestAware,SessionAware,ServletContextAware{
@@ -30,7 +30,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ses
 	private Log logger = LogFactory.getLog(UserAction.class);
 	
 	@Autowired
-	private UserService userService = ServiceLocator.getServiceLocator().getUserService();
+	private UserService userService ;
 	
 	private Gender gender = Gender.MALE;
 
@@ -352,13 +352,13 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ses
 		this.type = type;
 	}
 
-	public UserService getUserService() {
-		return userService;
-	}
-
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
+//	public UserService getUserService() {
+//		return userService;
+//	}
+//
+//	public void setUserService(UserService userService) {
+//		this.userService = userService;
+//	}
 
 	@Override
 	public void setSession(Map<String, Object> session) {
@@ -382,8 +382,8 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ses
 	public ServletContext getApplication() {
 		return application;
 	}
+	
 	@Override
-
 	public void setServletContext(ServletContext application) {
 		this.application = application;
 	}

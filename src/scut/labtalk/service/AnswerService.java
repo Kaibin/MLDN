@@ -2,8 +2,10 @@ package scut.labtalk.service;
 
 import java.util.List;
 
-import scut.labtalk.domain.Answer;
+import org.springframework.stereotype.Component;
 
+import scut.labtalk.domain.Answer;
+@Component
 public interface AnswerService {
 
 	// ªÿ¥Œ Ã‚

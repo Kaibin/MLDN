@@ -1,8 +1,11 @@
 package scut.labtalk.service;
 
 import java.util.List;
-import scut.labtalk.domain.Item;
 
+import org.springframework.stereotype.Component;
+
+import scut.labtalk.domain.Item;
+@Component
 public interface ItemService {
 
 	// 得到全部的栏目

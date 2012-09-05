@@ -2,8 +2,10 @@ package scut.labtalk.service;
 
 import java.util.List;
 
-import scut.labtalk.domain.Question;
+import org.springframework.stereotype.Component;
 
+import scut.labtalk.domain.Question;
+@Component
 public interface QuestionService {
 	// 根据Item查找全部的问题数量
 	public long getCountByItem(String itemid) throws Exception;

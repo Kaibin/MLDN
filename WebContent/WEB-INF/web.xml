@@ -8,6 +8,22 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!-- Spring Configuration --> 
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath*:/applicationContext.xml</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+  </listener>
+  
   <filter>
     <filter-name>encoding</filter-name>
     <filter-class>scut.labtalk.filter.EncodingFilter</filter-class>
@@ -20,6 +36,8 @@
     <filter-name>encoding</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  
+  <!-- Struts2 Configuration --> 
   <filter>
     <filter-name>struts2</filter-name>
     <filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
@@ -29,6 +47,8 @@
     <url-pattern>*.jsp</url-pattern>
     <url-pattern>*.action</url-pattern>
   </filter-mapping>
+  
+   <!-- ONGL Configuration --> 
   <filter>
     <filter-name>struts-cleanup</filter-name>
     <filter-class>org.apache.struts2.dispatcher.ActionContextCleanUp</filter-class>
@@ -37,10 +57,8 @@
     <filter-name>struts-cleanup</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  <context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>classpath*:/applicationContext.xml</param-value>
-  </context-param>
+  
+  
   <servlet>
     <servlet-name>ConnectorServlet</servlet-name>
     <servlet-class>net.fckeditor.connector.ConnectorServlet</servlet-class>
@@ -50,13 +68,6 @@
     <servlet-name>ConnectorServlet</servlet-name>
     <url-pattern>/fckeditor/editor/filemanager/connectors/*</url-pattern>
   </servlet-mapping>
-  <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
-  <listener>
-    <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
-  </listener>
-  <listener>
-    <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
-  </listener>
+  
+  
 </web-app>

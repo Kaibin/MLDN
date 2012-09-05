@@ -26,7 +26,7 @@ public class ItemAction extends ActionSupport implements SessionAware{
 	private Log logger = LogFactory.getLog(ItemAction.class);
 	
 	@Autowired
-	private ItemService itemService = ServiceLocator.getServiceLocator().getItemService();
+	private ItemService itemService;
 	private List<Item> itemList;
 	private HashMap<String,List<Subitem>> itemMap;
 	private Map<String,Object> session;

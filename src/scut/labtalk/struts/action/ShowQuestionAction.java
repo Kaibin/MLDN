@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.interceptor.ServletRequestAware;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import scut.labtalk.domain.Item;
 import scut.labtalk.domain.Pagination;
 import scut.labtalk.domain.Question;
@@ -20,10 +22,13 @@ public class ShowQuestionAction extends ActionSupport implements
 	/**
 	 * @author kaibin
 	 */
+	@Autowired
+	private QuestionService questionService;
+	@Autowired
+	private ItemService itemService;
+	
 	private static final long serialVersionUID = 7613036618250521432L;
 	private Log logger = LogFactory.getLog(ShowQuestionAction.class);
-	private QuestionService questionService = ServiceLocator.getServiceLocator().getQuestionService();
-	private ItemService itemService = ServiceLocator.getServiceLocator().getItemService();
 	private HttpServletRequest request;
 	private Question question;
 	private List<Question> allques = null;

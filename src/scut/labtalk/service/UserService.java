@@ -2,40 +2,42 @@ package scut.labtalk.service;
 
 import java.util.List;
 
-import scut.labtalk.domain.User;
+import org.springframework.stereotype.Component;
 
+import scut.labtalk.domain.User;
+@Component
 public interface UserService {
 
-	// °´userid²éÕÒÓÃ»§
+	// ï¿½ï¿½useridï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
 	public User getByUserid(String userid) throws Exception;
 
-	// ÓÃ»§×¢²á
+	// ï¿½Ã»ï¿½×¢ï¿½ï¿½
 	public void register(User user) throws Exception;
 
-	// µÇÂ½ÑéÖ¤
+	// ï¿½ï¿½Â½ï¿½ï¿½Ö¤
 	public boolean login(User user) throws Exception;
 
-	// ÕÒ»ØÃÜÂë²Ù×÷ --> ÔÊÐíÓÃ»§ÐÞ¸ÄÃÜÂë
+	// ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ --> ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
 	public void updateUserpwd(String userid, String userpwd) throws Exception;
 
-	// ¸ù¾ÝÌáÊ¾ÎÊÌâ¡¢´ð°¸¡¢ÓÃ»§ÃûÈ·¶¨´ËÓÃ»§ÊÇ·ñ´æÔÚ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½â¡¢ï¿½ð°¸¡ï¿½ï¿½Ã»ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
 	public boolean isExists(String userid, String userques, String userans) throws Exception;
 
-	// Ôö¼ÓµÃ·Ö
+	// ï¿½ï¿½ï¿½ÓµÃ·ï¿½
 	public void addIntegral(String userid, int itergral) throws Exception;
 
-	// ¸üÐÂÓÃ»§
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
 	public void update(User user) throws Exception;
 
-	// ÁÐ³öÈ«²¿ÓÃ»§
+	// ï¿½Ð³ï¿½È«ï¿½ï¿½ï¿½Ã»ï¿½
 	public List<User> getAllUser(int currentPage, int lineSize) throws Exception;
 
-	// Çó³öÈ«²¿µÄ¼ÇÂ¼Êý
+	// ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½Ä¼ï¿½Â¼ï¿½ï¿½
 	public long getAllCount() throws Exception;
 
-	// É¾³ýÓÃ»§
+	// É¾ï¿½ï¿½ï¿½Ã»ï¿½
 	public void delete(User user) throws Exception;
 
-	// ÐÞ¸ÄÓÃ»§»ý·Ö
+	// ï¿½Þ¸ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½
 	public void updateIntegral(String userid, int integral) throws Exception;
 }
